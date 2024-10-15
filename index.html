@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Lessons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body{
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+
+       }
+
+       .box-model {
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .box-model h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .box-model form .form-control {
+            border-radius: 5px;
+        }
+
+        .box-model .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .box-model .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .success {
+            color: green;
+            font-size: 1em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .navbar-brand h3 {
+            color: gray;
+        }
+
+        /* Dropdown styles */
+        .dropdown-menu {
+            min-width: 200px; 
+        }
+
+        .dropdown-item {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #e7f1ff;
+            color: #007bff; 
+        }
+
+        .nav-link:hover {
+            color: #0056b3; 
+        }
+
+        
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column; 
+            }
+
+            .navbar-brand h3 {
+                font-size: 24px; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand h3 {
+                font-size: 20px; 
+            }
+
+            .dropdown-menu {
+                position: absolute; 
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000; 
+            }
+        }
+
+        .main {
+  background: url('./images/main.jpg') no-repeat center center;
+  background-size: cover; 
+  width: 100%;            
+  height: 100vh;           
+  display: flex;          
+  align-items: center;     
+  justify-content: center; 
+}
+
+
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 80%;
+            background-color: aliceblue;
+            margin: auto;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 calc(50% - 20px);
+            min-width: 200px; 
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+           
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 0 0 100%; 
+            }
+        }
+
+.videoscon {
+        padding: 20px;
+    }
+
+    .video-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .video-wrapper {
+        flex: 1;
+        margin: 0 10px; 
+        max-width: 48%; 
+    }
+
+    video {
+        width: 100%; 
+        border-radius: 8px; 
+    }
+
+    .controls {
+        margin-top: 10px;
+    }
+
+    .fullscreenBtn {
+        margin-left: 10px; 
+    }
+
+        footer{
+        background-color: #333;
+        color: white;
+        padding: 5px 0;
+        margin-top: 20px;
+    }
+
+    .grid_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 50px;
+            margin: 20px 0;
+            background-color: #2C3E50;
+            padding: 40px;
+        }
+
+        .grid-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+            border: 2px solid rgb(190, 190, 52);
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+       
+        .fa-solid{
+            color: maroon;
+            font-size: 30px;
+            padding: 3px;
+        }
+        .priceing{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .plan {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+        }
+        .plan h2 {
+            color: #0066cc;
+        }
+        .price {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #e91e63;
+        }
+        .features {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li {
+            margin: 10px 0;
+        }
+        .button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005bb5; 
+        }
+        .key-considerations {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .text-primary {
+                font-size: 24px;
+            }
+            .text-muted {
+                font-size: 14px;
+            }
+            .grid-item h4 {
+                font-size: 18px;
+            }
+            .grid-item p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .text-primary {
+                font-size: 20px;
+            }
+            .grid-item h4 {
+                font-size: 16px;
+            }
+            .grid-item p {
+                font-size: 12px;
+            }
+            .sub_grid {
+                grid-template-columns: 1fr;
+            }
+            .b, .grid1, .grid2, .grid3 {
+                padding: 10px;
+            }
+        }
+
+        h3{
+            color: red;
+        }
+        h1{
+            font-size: 50px;
+
+        }
+        .foot{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        #A_cont{
+            display: flex;
+            
+            justify-content: space-evenly;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 90px;
+            
+        }
+        .b{
+            font-size: 30px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+    
+        .grid1,.grid2,.grid3{
+            font-size: 30px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .testimonial-music-container {
+          width: 100%;
+          max-width: 1000px;
+          margin: 0 auto;
+          overflow: hidden;
+          position: relative;
+          padding: 50px 20px;
+          background-color: #f0f0f0;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-music-slider {
+      display: flex;
+      animation: slowScroll 25s infinite;
+}
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.testimonial-music-item {
+  min-width: 100%;
+  padding: 40px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-music-text {
+  font-size: 1.4em;
+  font-style: italic;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.review-details {
+  margin-top: 15px;
+}
+
+.review-stars {
+  font-size: 1.8em;
+  color: #FFD700;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #2C3E50;
+}
+
+.testimonial-job {
+  font-size: 1.1em;
+  color: #7f8c8d;
+}
+
+@keyframes slowScroll {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  40% { transform: translateX(-100%); }
+  60% { transform: translateX(-200%); }
+  80% { transform: translateX(-300%); }
+  100% { transform: translateX(-400%); }
+}
+
+
+.faq-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #2C3E50;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.faq-question {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+.toggle-symbol {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #3498db;
+}
+
+.faq-question:hover {
+  color: #3498db;
+}
+
+.faq-answer {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  display: none; 
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+
+.container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            font-size: 0.875rem;
+        }
+        .success {
+            color: green;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        h2 {
+            margin-bottom: 20px;
+           
+        }
+        @media (max-width: 768px) {
+            .success {
+                margin-top: 20px;
+            }
+        }
+        p{
+            text-align: justify;
+        }
+        
+
+        .modal-header {
+            background-color: #2C3E50;
+            color: white;
+        }
+        .modal-footer {
+            background-color: #f8f9fa;
+        }
+
+
+        .profile-dropdown-container {
+            position: relative; 
+        }
+
+        .profile-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-button img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .profile-dropdown {
+            display: none; 
+            position: absolute; 
+            right: 0;
+            top: 50px; 
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            z-index: 1000; 
+        }
+
+        .dropdown-item {
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f0f0; 
+        }
+
+        .content-section {
+            display: none; 
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        #payment-options {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .payment-details {
+            display: none; 
+            margin-top: 15px;
+        }
+        
+        button {
+            margin-top: 10px;
+        }
+
+
+        
+
+.intro {
+    text-align: center;
+    margin: 20px;
+}
+
+.genre-link {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.genre-link:hover {
+    background-color: #45a049;
+}
+
+.content {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.hidden {
+    display: none;
+}
+
+.content {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+    background-color: #f8f9fa;
+}
+
+/* Small Devices (Phones) */
+@media (max-width: 576px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan {
+        width: 90%;
+        margin: 15px 0;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .features li {
+        font-size: 14px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan {
+        width: 80%;
+        margin: 15px 0;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    .features li {
+        font-size: 16px;
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .plan {
+        width: 30%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .features li {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 14px 28px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .plan {
+        width: 25%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .price {
+        font-size: 24px;
+    }
+
+    .features li {
+        font-size: 20px;
+    }
+
+    .button {
+        padding: 16px 32px;
+        font-size: 20px;
+    }
+}
+
+.fa-circle-check{
+    color: green;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .main {
+    padding: 5px;
+  }
+
+  #A_cont {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  ul {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .container {
+    padding: 20px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  #A_cont {
+    font-size: 18px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  ul {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .container {
+    padding: 30px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  #A_cont {
+    font-size: 20px;
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  ul {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .container {
+    padding: 40px;
+  }
+
+  .main {
+    padding: 30px;
+  }
+
+  #A_cont {
+    font-size: 22px;
+    padding: 50px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  ul {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h3 {
+    margin-left: 20px; 
+    font-size: 18px; 
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  h3 {
+    margin-left: 50px; 
+    font-size: 20px; 
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  h3 {
+    margin-left: 100px; 
+    font-size: 22px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  h3 {
+    margin-left: 150px; 
+    font-size: 24px; 
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .text-center h2 {
+    font-size: 20px; 
+  }
+
+  .skill-link {
+    font-size: 14px; 
+    padding: 10px 20px; 
+    display: block; 
+    margin: 10px auto; 
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .text-center h2 {
+    font-size: 24px; 
+  }
+
+  .skill-link {
+    font-size: 16px; 
+    padding: 12px 25px; 
+    margin: 10px;
+    width: 40%; 
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .text-center h2 {
+    font-size: 28px; 
+  }
+
+  .skill-link {
+    font-size: 18px;
+    padding: 15px 30px; 
+    margin: 10px; 
+    width: 30%; 
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .text-center h2 {
+    font-size: 32px; 
+  }
+
+  .skill-link {
+    font-size: 20px; 
+    padding: 15px 35px; 
+    margin: 10px; 
+    width: auto; 
+  }
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <!-- <img src="./images/logo.png" alt="no image" width="150px" height="50px" class="rounded"> -->
+             <h3 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: gray;">SK Music Lesson</h2>
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                 <!-- Search form -->
+            <form class="d-flex me-3" id="searchForm">
+                <input class="form-control me-2" type="text" id="searchInput" placeholder="Search" aria-label="Search">
+              
+                <button class="btn btn-outline-success" type="submit" style=" position: relative;top: -5px;">Search</button>
+              </form>
+
+
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+              
+
+              <!-- Dropdown for Music -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="musicDropdown" role="button" aria-expanded="false">
+                  Music
+                </a>
+                
+                <ul class="dropdown-menu" aria-labelledby="musicDropdown">
+                  <li><a class="dropdown-item" href="#lesson">Schedule a Lesson</a></li>
+                  <li><a class="dropdown-item" href="#videocon">Video Lessons</a></li>
+                  
+                  <li><a class="dropdown-item" href="#price">Pricing</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+            </ul>
+            
+            <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+              <button class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+           
+            <!-- Profile dropdown with circular image -->
+            <div class="profile-dropdown-container">
+                <button class="profile-button" onclick="toggleDropdown(event)">
+                    <img src="./images/logo.png" alt="Profile" />
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a class="dropdown-item" href="#instr" style="width: 100%; text-align: center;">Instrument</a>
+                    <a class="dropdown-item" href="#skilllevel" style="width: 100%; text-align: center;">Skill Level</a>
+                    <a class="dropdown-item" href="#" style="width: 100%; text-align: center;">Notifications</a>
+                    <a class="dropdown-item" href="#" style="width: 100%; text-align: center;">Messages</a>
+                    <a class="dropdown-item" href="#" style="width: 100%; text-align: center;">Payment Methods</a>
+                    <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#purchaseHistoryModal" style="width: 100%; text-align: center;">Purchase History</a>
+                                <a class="dropdown-item" href="#payment" style="width: 100%; text-align: center;">Help and Support</a>
+                                <button class="btn btn-light" data-toggle="modal" data-target="#settingsModal" style="width: 100%;">Settings</button>
+                                <a class="dropdown-item" href="#testinomial" style="width: 100%; text-align: center;">Reviews</a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+</nav>
+
+<script>
+     function toggleDropdown(event) {
+            event.stopPropagation(); 
+            const dropdown = document.getElementById('profileDropdown');
+            const isDisplayed = dropdown.style.display === 'block';
+            
+            document.querySelectorAll('.profile-dropdown').forEach(menu => menu.style.display = 'none');
+            
+            dropdown.style.display = isDisplayed ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-button')) {
+                const dropdowns = document.getElementsByClassName("profile-dropdown");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = "none"; 
+                }
+            }
+        };
+</script>
+
+
+
+ <!-- Settings Modal -->
+ <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="settingsModalLabel">Music Level Settings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="skillLevel">Preferred Skill Level</label>
+                        <select class="form-control" id="skillLevel">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="practiceTime">Daily Practice Time (minutes)</label>
+                        <input type="range" class="form-control-range" id="practiceTime" value="30" min="0" max="120">
+                        <small class="form-text text-muted">Minutes: <span id="practiceTimeValue">30</span></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Learning Style</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="visual" value="Visual">
+                            <label class="form-check-label" for="visual">Visual</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="auditory" value="Auditory">
+                            <label class="form-check-label" for="auditory">Auditory</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="kinesthetic" value="Kinesthetic">
+                            <label class="form-check-label" for="kinesthetic">Kinesthetic</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveSettings">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.querySelectorAll('.skill-link').forEach(link => {
+link.addEventListener('click', (e) => {
+    e.preventDefault(); 
+
+    document.querySelectorAll('.content').forEach(content => {
+        content.classList.add('hidden');
+    });
+
+    const targetId = link.getAttribute('data-target');
+    const targetContent = document.getElementById(targetId);
+    targetContent.classList.remove('hidden');
+});
+});
+
+document.getElementById('practiceTime').addEventListener('input', (e) => {
+document.getElementById('practiceTimeValue').textContent = e.target.value;
+});
+
+document.getElementById('saveSettings').addEventListener('click', () => {
+const skillLevel = document.getElementById('skillLevel').value;
+const practiceTime = document.getElementById('practiceTime').value;
+const learningStyles = [];
+
+document.querySelectorAll('.form-check-input:checked').forEach((checkbox) => {
+    learningStyles.push(checkbox.value);
+});
+
+console.log(`Skill Level: ${skillLevel}, Daily Practice Time: ${practiceTime} mins, Learning Styles: ${learningStyles.join(', ')}`);
+
+alert('Settings saved successfully!');
+
+$('#settingsModal').modal('hide');
+});
+
+</script>
+
+
+
+
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content box-model">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label" style="font-weight: bold;">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+                            <div class="error" id="loginEmailError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label" style="font-weight: bold;">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                            <div class="error" id="loginPasswordError"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <p class="text-center mt-3">Don't have an account? <a href="#" id="showRegisterModal">Register here</a></p>
+                    <div class="success" id="loginSuccessMessage" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content box-model">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label" style="font-weight: bold;">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                            <div class="error" id="nameError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="font-weight: bold;">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="error" id="emailError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="instrument" class="form-label" style="font-weight: bold;">Instrument</label>
+                            <input type="text" class="form-control" id="instrument" placeholder="Enter your Instrument" required>
+                            <div class="error" id="instrumentError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="skill-level" class="form-label" style="font-weight: bold;">Skill Level</label>
+                            <select class="form-select" id="skill-level" required>
+                                <option value="" selected disabled>--Choose Your Skill Level--</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                            <div class="error" id="skillLevelError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label" style="font-weight: bold;">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            <div class="error" id="passwordError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label" style="font-weight: bold;">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            <div class="error" id="confirmPasswordError"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender" class="form-label" style="font-weight: bold;">Gender</label>
+                            <select class="form-select" id="gender" required>
+                                <option value="" selected disabled>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error" id="genderError"></div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                            <div class="error" id="termsError"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+
+                        <div class="login-link">
+                            <p>Already have an account? <a href="#" id="showLoginModal">Login here</a></p>
+                        </div>
+
+                    </form>
+                    <div class="success" id="registrationSuccessMessage" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+
+function showModal(modalId) {
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+        }
+
+        
+
+        document.getElementById('showRegisterModal').addEventListener('click', function() {
+            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            if (loginModal) loginModal.hide();
+            showModal('registerModal');
+        });
+
+        document.getElementById('showLoginModal').addEventListener('click', function() {
+            const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            if (registerModal) registerModal.hide();
+            showModal('loginModal');
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            document.querySelectorAll('.error').forEach(el => el.innerText = '');
+            document.getElementById('registrationSuccessMessage').innerText = '';
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const instrument = document.getElementById('instrument').value.trim();
+            const skillLevel = document.getElementById('skill-level').value;
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            const gender = document.getElementById('gender').value;
+            const termsChecked = document.getElementById('terms').checked;
+
+            let valid = true;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (fullName === '') {
+                document.getElementById('nameError').innerText = 'Full name is required';
+                valid = false;
+            }
+
+            if (email === '') {
+                document.getElementById('emailError').innerText = 'Email is required';
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').innerText = 'Enter a valid email address';
+                valid = false;
+            }
+
+            if (instrument === '') {
+                document.getElementById('instrumentError').innerText = 'Instrument is required';
+                valid = false;
+            }
+
+            if (skillLevel === '') {
+                document.getElementById('skillLevelError').innerText = 'Please select your skill level';
+                valid = false;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('passwordError').innerText = 'Password must be at least 6 characters';
+                valid = false;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').innerText = 'Passwords do not match';
+                valid = false;
+            }
+
+            if (gender === '') {
+                document.getElementById('genderError').innerText = 'Please select your gender';
+                valid = false;
+            }
+
+            if (!termsChecked) {
+                document.getElementById('termsError').innerText = 'You must agree to the terms and conditions';
+                valid = false;
+            }
+
+            if (valid) {
+                document.getElementById('registrationSuccessMessage').innerText = `Registration successful! Welcome, ${fullName}.`;
+                document.getElementById('registrationSuccessMessage').style.display = 'block';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            document.querySelectorAll('.error').forEach(el => el.innerText = '');
+            document.getElementById('loginSuccessMessage').innerText = '';
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+
+            let valid = true;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                document.getElementById('loginEmailError').innerText = 'Email is required';
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('loginEmailError').innerText = 'Enter a valid email address';
+                valid = false;
+            }
+
+            if (password === '') {
+                document.getElementById('loginPasswordError').innerText = 'Password is required';
+                valid = false;
+            }
+
+            if (valid) {
+                document.getElementById('loginSuccessMessage').innerText = 'Login successful!';
+                document.getElementById('loginSuccessMessage').style.display = 'block';
+            }
+        });
+            </script>
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="purchaseHistoryModal" tabindex="-1" aria-labelledby="purchaseHistoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="purchaseHistoryModalLabel">Your Purchase History</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-primary" role="alert">
+                    You have purchased Lesson 1 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                    You have purchased Lesson 2 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-success" role="alert">
+                    You have purchased Lesson 3 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    You have purchased Lesson 4 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-warning" role="alert">
+                    You have purchased Lesson 5 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-info" role="alert">
+                    You have purchased Lesson 6 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-light" role="alert">
+                    You have purchased Lesson 7 successfully. Thank you for purchasing!
+                </div>
+                <div class="alert alert-dark" role="alert">
+                    You have purchased Lesson 8 successfully. Thank you for purchasing!
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <div class="container-fluid">
+        
+        <div class="main">
+            <div id="content" class="content-section"></div>
+
+          <div id="A_cont" class="p-5 text-light text-no-wrap">
+        
+
+
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Learn To Play The Music Easy Way.</h1>
+        
+        <ul style="font-family:Arial, Helvetica, sans-serif;">
+            
+            <li>Piano Lessons: Master the art of piano playing with our step-by-step curriculum, designed for both children and adults.
+            </li>
+            <li>Guitar Lessons: Learn the fundamentals of acoustic and electric guitar, covering genres from classical to rock.
+            </li>
+            <li>Vocal Coaching: Improve your singing technique, pitch control, and stage presence with our experienced vocal coaches.
+            </li>
+        
+            <li>Drum Lessons: Feel the rhythm and learn the basics of drumming, including proper technique and coordination exercises.
+            </li>
+        
+            <li>Violin Lessons: Explore the beauty of string music with structured lessons that focus on technique, posture, and music theory.
+            </li>
+        </ul>
+
+
+       
+        
+        
+          </div>
+        
+        </div>
+      </div>
+
+      <div id="lesson " class="mt-5">
+        <h2 class="text-center" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Schedule a Lesson</h2>
+    
+        <form id="lesson-form">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="instructor">Instructor:</label>
+                    <select id="instructor" required>
+                        <option value="">--Choose Your Instructor--</option>
+                        <option value="Ramesh">Ramesh</option>
+                        <option value="Suresh">Suresh</option>
+                        <option value="Rakesh">Rakesh</option>
+                        <option value="Manoj">Manoj</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required />
+                </div>
+    
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" required />
+                </div>
+    
+                <div class="form-group">
+                    <label for="recurring">Recurring:</label>
+                    <select id="recurring" required>
+                        <option value="">--Select your Recurring--</option>
+                        <option value="none">One-time</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+               <div>
+                <button type="submit">Book Lesson</button>
+              
+                
+                <h3 style="margin-left: 150px;">Lessons Scheduled Here</h3>
+                
+        <div id="lessons"></div>
+               </div>
+               
+            
+            </div>
+             
+            
+        </form>
+    
+    
+        
+        </div>
+
+
+
+       
+    
+        <main>
+            
+    
+            <section class="content hidden" >
+                <h2 id="jazz">Types of Jazz</h2>
+                <ul>
+                    <li>Dixieland</li>
+                    <li>Swing</li>
+                    <li>Bebop</li>
+                    <li>Cool Jazz</li>
+                    <li>Hard Bop</li>
+                    <li>Free Jazz</li>
+                    <li>Fusion</li>
+                </ul>
+                <p>Jazz is characterized by improvisation, syncopated rhythms, and a strong emphasis on individual expression.</p>
+    
+                <h3>Historical Context</h3>
+                <p>Jazz originated in the early 20th century in New Orleans, blending African American musical traditions with European influences. It quickly spread across the United States and became a major cultural force.</p>
+    
+                <h3>Notable Artists</h3>
+                <ul>
+                    <li>Louis Armstrong</li>
+                    <li>Duke Ellington</li>
+                    <li>Charlie Parker</li>
+                    <li>Miles Davis</li>
+                    <li>John Coltrane</li>
+                </ul>
+    
+                <h3>Famous Pieces</h3>
+                <ul>
+                    <li>"What a Wonderful World" - Louis Armstrong</li>
+                    <li>"Take Five" - Dave Brubeck</li>
+                    <li>"So What" - Miles Davis</li>
+                    <li>"Giant Steps" - John Coltrane</li>
+                </ul>
+            </section>
+    
+            <section class="content hidden">
+                <h2 id="classic">Types of Classical Music</h2>
+                <ul>
+                    <li>Baroque</li>
+                    <li>Classical</li>
+                    <li>Romantic</li>
+                    <li>Impressionist</li>
+                    <li>20th Century and Contemporary</li>
+                </ul>
+                <p>Classical music emphasizes composition, form, and structure, often conveying specific emotions or narratives.</p>
+    
+                <h3>Historical Context</h3>
+                <p>Classical music has a rich history that spans over a thousand years, beginning in the Medieval period and evolving through various styles, including the Renaissance, Baroque, Classical, Romantic, and modern eras.</p>
+    
+                <h3>Notable Composers</h3>
+                <ul>
+                    <li>Johann Sebastian Bach</li>
+                    <li>Ludwig van Beethoven</li>
+                    <li>Wolfgang Amadeus Mozart</li>
+                    <li>Claude Debussy</li>
+                    <li>Igor Stravinsky</li>
+                </ul>
+    
+                <h3>Famous Pieces</h3>
+                <ul>
+                    <li>"Clair de Lune" - Claude Debussy</li>
+                    <li>"Symphony No. 9" - Ludwig van Beethoven</li>
+                    <li>"The Four Seasons" - Antonio Vivaldi</li>
+                    <li>"The Rite of Spring" - Igor Stravinsky</li>
+                </ul>
+            </section>
+        </main>
+    
+    
+
+  <div class="container mt-5" id="instr">
+        <header class="text-danger text-center py-4">
+            <h1 style="font-family: 'Courier New', Courier, monospace;">Musical Instruments</h1>
+        </header>
+    
+        <main class="container mt-4">
+            <section class="text-center">
+                <h2>Select a Category</h2>
+                <a href="#" class="btn btn-info genre-link" data-target="stringInstruments">String Instruments</a>
+                <a href="#" class="btn btn-info genre-link" data-target="percussionInstruments">Percussion Instruments</a>
+                <a href="#" class="btn btn-info genre-link" data-target="windInstruments">Wind Instruments</a>
+                <a href="#" class="btn btn-info genre-link" data-target="keyboardInstruments">Keyboard Instruments</a>
+            </section>
+    
+            <section id="stringInstruments" class="content hidden mt-4">
+                <h3>String Instruments</h3>
+                <ul>
+                    <li>Violin</li>
+                    <li>Viola</li>
+                    <li>Cello</li>
+                    <li>Double Bass</li>
+                    <li>Guitar</li>
+                    <li>Harp</li>
+                </ul>
+                <p>String instruments produce sound by vibrating strings. They can be played by bowing or plucking.</p>
+            </section>
+    
+            <section id="percussionInstruments" class="content hidden mt-4">
+                <h3>Percussion Instruments</h3>
+                <ul>
+                    <li>Drums</li>
+                    <li>Tambourine</li>
+                    <li>Cymbals</li>
+                    <li>Xylophone</li>
+                    <li>Bongos</li>
+                    <li>Marimba</li>
+                </ul>
+                <p>Percussion instruments produce sound when struck, shaken, or scraped. They are often used to keep rhythm.</p>
+            </section>
+    
+            <section id="windInstruments" class="content hidden mt-4">
+                <h3>Wind Instruments</h3>
+                <ul>
+                    <li>Flute</li>
+                    <li>Clarinet</li>
+                    <li>Saxophone</li>
+                    <li>Trumpet</li>
+                    <li>Trombone</li>
+                    <li>Oboe</li>
+                </ul>
+                <p>Wind instruments produce sound by the vibration of air in a tube. They are played by blowing air into or across a mouthpiece.</p>
+            </section>
+    
+            <section id="keyboardInstruments" class="content hidden mt-4">
+                <h3>Keyboard Instruments</h3>
+                <ul>
+                    <li>Piano</li>
+                    <li>Organ</li>
+                    <li>Harpsichord</li>
+                    <li>Accordion</li>
+                    <li>Synthesizer</li>
+                </ul>
+                <p>Keyboard instruments produce sound by striking strings or pipes, often through a keyboard mechanism.</p>
+            </section>
+        </main>
+
+        </div>
+    
+
+        <script>
+            document.querySelectorAll('.genre-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default anchor link behavior
+    
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.add('hidden');
+            });
+    
+            const targetId = link.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+            targetContent.classList.remove('hidden');
+        });
+    });
+    
+        </script>
+
+
+
+<div class="container mt-5" id="skilllevel">
+
+<header class="text-info text-center py-4">
+    <h1>Music Skill Levels</h1>
+</header>
+
+<main class="container mt-4">
+    <section class="text-center">
+        <h2>Select a Skill Level</h2>
+        <a href="#" class="btn btn-info skill-link" data-target="beginner">Beginner</a>
+        <a href="#" class="btn btn-info skill-link" data-target="intermediate">Intermediate</a>
+        <a href="#" class="btn btn-info skill-link" data-target="advanced">Advanced</a>
+    </section>
+
+    <section id="beginner" class="content hidden mt-4">
+        <h3>Beginner Level</h3>
+        <p>At the beginner level, musicians are just starting their journey. They may have limited experience and are often learning the basics of their instrument or vocal techniques.</p>
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Understanding basic music theory</li>
+            <li>Learning simple scales and chords</li>
+            <li>Playing simple melodies</li>
+            <li>Developing rhythm and timing</li>
+        </ul>
+    </section>
+
+    <section id="intermediate" class="content hidden mt-4">
+        <h3>Intermediate Level</h3>
+        <p>Intermediate musicians have a solid foundation and can play more complex pieces. They are often able to improvise and have a deeper understanding of music theory.</p>
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Playing more complex scales and chords</li>
+            <li>Improvisation skills</li>
+            <li>Ability to read sheet music</li>
+            <li>Performing in ensembles or bands</li>
+        </ul>
+    </section>
+
+    <section id="advanced" class="content hidden mt-4">
+        <h3>Advanced Level</h3>
+        <p>Advanced musicians have mastered their instrument and can perform at a high level. They often explore advanced techniques and complex compositions.</p>
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Mastery of advanced music theory</li>
+            <li>Performance of complex pieces</li>
+            <li>Composing and arranging music</li>
+            <li>Teaching or mentoring other musicians</li>
+        </ul>
+    </section>
+</main>
+
+</div>
+
+<script>document.querySelectorAll('.skill-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); 
+
+        document.querySelectorAll('.content').forEach(content => {
+            content.classList.add('hidden');
+        });
+
+        const targetId = link.getAttribute('data-target');
+        const targetContent = document.getElementById(targetId);
+        targetContent.classList.remove('hidden');
+    });
+});
+</script>
+        
+  <div class="videoscon" id="videocon">
+    <h1 class="text-primary text-center">Video Lessons</h1>
+    <div class="video-container">
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video1.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+           
+        </div>
+
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video2.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video3.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video4.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+           
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video5.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+           
+        </div>
+
+        <div class="video-wrapper">
+            <video class="videoPlayer" controls>
+                <source src="./videos/video6.mp4" type="video/mp4">
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="containr">
+    <h1 class="text-primary text-center p-5" id="payment">Welcome to Portal</h1>
+    <p class="text-muted text-center text-light mt-5 fs-5">Click the category below to resolve your queries. </p>
+
+    <div class="grid_container">
+        
+        <div class="grid-item"><h4 class="text-success text-center"><i class="fa-regular fa-money-bill-1" style="font-size: 20px; color: maroon;"></i>Payments & billing</h4>
+
+            <p class="text-muted text-center">Queries regarding about payments</p>
+            <a href="#" class="text-center">ClickHere</a>
+        
+        </div>
+        <div class="grid-item"><h4 class="text-success text-center"><i class="fa-solid fa-user"></i>Progress Tracking</h4>
+            <p class="text-center text-muted">You can track your progress Over Here</p>
+            <a href="#" class="text-center">ClickHere</a>
+
+        </div>
+        <div class="grid-item"><h4 class="text-success text-center"><i class="fa-solid fa-bell"></i>Notifications</h4>
+            <p class="text-center text-muted">About notifications lesson Timetable</p>
+            <a href="#" class="text-center">ClickHere</a>
+
+
+                         
+
+        </div>
+        <div class="grid-item"><h4 class="text-success text-center"><i class="fa-solid fa-star"></i>Reviews and Ratings</h4>
+            <p class="text-center text-muted">Check Customer Review and Rating</p>
+           <a href="#testinomial" class="text-center">ClickHere</a>
+
+        </div>
+        </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="priceing">
+                <h4 id="price" style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: red;">Basic Table</h4>
+                <h1 class="text-info" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Your Plan</h1>
+                <p class="text-light" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">The 0% transaction fee applies to both the Pro and Pro+ plans, which can be a significant advantage for businesses that process a high volume of transactions. <br>
+                    The asterisk (*) next to the 0% transaction fee suggests there may be specific conditions or exceptions, so it’s good to clarify those terms.</p>
+
+                <div class="container">
+                    <div class="plan">
+                        <h2>Basic Plan</h2>
+                        <div class="price">$39/month</div>
+                        <ul class="features">
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 5% transaction fee</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 5 published products (courses, coaching, downloads)</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Access to community support</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 1 membership tier</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Integrated email marketing</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Coupons and order bumps</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Custom domains</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Access to accelerator challenge</li>
+                        </ul>
+                        <button class="button" id="pay-btn">Select Basic</button>
+                    </div>
+            
+                    <div class="plan">
+                        <h2>Pro Plan</h2>
+                        <div class="price">$119/month</div>
+                        <ul class="features">
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 0% transaction fees*</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 50 published products (courses, coaching, downloads)</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Unlimited membership tiers</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Affiliate marketing support</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Live chat support</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Upsells to increase order value</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Public API access</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Removable branding</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 5 admin seats</li>
+                        </ul>
+                        <button class="button" id="pay-btn">Select Pro</button>
+                    </div>
+            
+                    <div class="plan">
+                        <h2>Pro+ Plan</h2>
+                        <div class="price">$199/month</div>
+                        <ul class="features">
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 0% transaction fees*</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 200 published products (courses, coaching, downloads)</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> 200 product bundles</li>
+                            <li style="text-align: start;"><i class="fa-solid fa-circle-check"></i> Custom user roles</li>
+                        </ul>
+                        <button class="button" id="pay-btn">Select Pro+</button>
+                    </div>
+                </div>
+            
+                <div class="key-considerations">
+                    <h3>Key Considerations</h3>
+                    <p>The Basic plan is designed for startups or small businesses just getting started, offering essential tools and support.</p>
+                    <p>The Pro plan is tailored for growing businesses that require more advanced features and support to scale their operations.</p>
+                    <p>The Pro+ plan is intended for larger or rapidly growing businesses, offering extensive product capabilities and customization.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="payment-options" style="display: none;">
+            <h3>Choose a payment option:</h3>
+            <div class="payment-method">
+                <input type="radio" id="upi" name="payment-method" value="upi">
+                <label for="upi">UPI</label>
+            </div>
+            <div class="payment-method">
+                <input type="radio" id="cash" name="payment-method" value="cash">
+                <label for="cash">Cash</label>
+            </div>
+            <div class="payment-method">
+                <input type="radio" id="card" name="payment-method" value="card">
+                <label for="card">Card</label>
+            </div>
+    
+            <!-- Dynamic Fields -->
+            <div id="upi-details" class="payment-details">
+                <label for="upi-id">Enter UPI ID:</label>
+                <input type="text" id="upi-id" class="form-control" placeholder="Enter your UPI ID">
+            </div>
+    
+            <div id="card-details" class="payment-details">
+                <label for="card-name">Cardholder Name:</label>
+                <input type="text" id="card-name" class="form-control" placeholder="Enter cardholder's name">
+    
+                <label for="card-number">Card Number:</label>
+                <input type="number" id="card-number" class="form-control" placeholder="Enter your card number">
+    
+                <label for="expiry-date">Expiration Date:</label>
+                <input type="month" id="expiry-date" class="form-control" required>
+    
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" class="form-control" placeholder="Enter CVV" required>
+            </div>
+    
+            <div id="cash-details" class="payment-details">
+                <p>You have chosen to pay by cash. Please bring the cash when you join.</p>
+            </div>
+    
+            <button id="submit-payment" class="btn btn-success">Submit Payment</button>
+        </div>
+    
+        <div id="payment-message" class="alert alert-success mt-4" style="display: none;"></div>
+    
+        <script>
+            document.getElementById('pay-btn').addEventListener('click', function() {
+                document.getElementById('payment-options').style.display = 'block'; // Show payment options
+            });
+    
+            document.querySelectorAll('input[name="payment-method"]').forEach(function(elem) {
+                elem.addEventListener('change', function(event) {
+                    const selectedMethod = event.target.value;
+    
+                    document.getElementById('upi-details').style.display = 'none';
+                    document.getElementById('card-details').style.display = 'none';
+                    document.getElementById('cash-details').style.display = 'none';
+    
+                    if (selectedMethod === 'upi') {
+                        document.getElementById('upi-details').style.display = 'block';
+                    } else if (selectedMethod === 'card') {
+                        document.getElementById('card-details').style.display = 'block';
+                    } else if (selectedMethod === 'cash') {
+                        document.getElementById('cash-details').style.display = 'block';
+                    }
+                });
+            });
+    
+            document.getElementById('submit-payment').addEventListener('click', function() {
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+                if (!selectedMethod) {
+                    alert('Please select a payment method.');
+                    return;
+                }
+    
+                let message = '';
+    
+                if (selectedMethod.value === 'upi') {
+                    const upiId = document.getElementById('upi-id').value;
+                    if (!upiId) {
+                        alert('Please enter your UPI ID.');
+                        return;
+                    } else {
+                        message = 'Received payment through UPI. You can join.';
+                    }
+                } else if (selectedMethod.value === 'card') {
+                    const cardName = document.getElementById('card-name').value;
+                    const cardNumber = document.getElementById('card-number').value;
+                    const expiryDate = document.getElementById('expiry-date').value;
+                    const cvv = document.getElementById('cvv').value;
+    
+                    if (!cardName || !cardNumber || !expiryDate || !cvv) {
+                        alert('Please fill in all card details.');
+                        return;
+                    } else {
+                        message = 'Received payment through card. You can join.';
+                    }
+                } else if (selectedMethod.value === 'cash') {
+                    message = 'Received cash payment. You can join.';
+                }
+    
+                // Display the success message
+                const paymentMessageDiv = document.getElementById('payment-message');
+                paymentMessageDiv.innerText = message;
+                paymentMessageDiv.style.display = 'block'; // Show the message
+            });
+        </script>
+    
+    
+        
+
+        <div class="container mt-5">
+            <h1 style="color: #27ae60;" id="testinomial">Testimonials</h1>
+
+     
+<div class="testimonial-music-container">
+    <div class="testimonial-music-slider">
+      <div class="testimonial-music-item">
+        <p class="testimonial-music-text">"The sound quality is just amazing! I've never heard anything so crystal clear before."</p>
+        <div class="review-details">
+          <div class="review-stars">
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="testimonial-author">- Alice Johnson</p>
+          <p class="testimonial-job">Professional Music Producer</p>
+        </div>
+      </div>
+  
+      <div class="testimonial-music-item">
+        <p class="testimonial-music-text">"I've been using their music equipment for years. It has never let me down during performances."</p>
+        <div class="review-details">
+          <div class="review-stars">
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="testimonial-author">- David Lee</p>
+          <p class="testimonial-job">Concert Pianist</p>
+        </div>
+      </div>
+  
+      <div class="testimonial-music-item">
+        <p class="testimonial-music-text">"The customer service and support are top-notch. I was able to find the perfect gear for my studio."</p>
+        <div class="review-details">
+          <div class="review-stars">
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="testimonial-author">- Sarah Collins</p>
+          <p class="testimonial-job">Studio Engineer</p>
+        </div>
+      </div>
+  
+      <div class="testimonial-music-item">
+        <p class="testimonial-music-text">"I love their microphones! The sound clarity during recording sessions is unparalleled."</p>
+        <div class="review-details">
+          <div class="review-stars">
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="testimonial-author">- James Taylor</p>
+          <p class="testimonial-job">Recording Artist</p>
+        </div>
+      </div>
+  
+      <div class="testimonial-music-item">
+        <p class="testimonial-music-text">"Their guitars have the perfect tone. I highly recommend them for anyone serious about music."</p>
+        <div class="review-details">
+          <div class="review-stars">
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="testimonial-author">- Laura Smith</p>
+          <p class="testimonial-job">Guitarist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="faq-container" style="margin-top: 50px;">
+    <h2 style="color: #e74c3c;">Frequently Asked Questions</h2>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">1. Do you offer music lessons for beginners?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>Yes, we offer music lessons for all skill levels, including beginners. Whether you want to learn guitar, piano, or any other instrument, our experienced instructors will guide you step by step.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">2. What type of equipment do I need for home recording?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>To set up a home recording studio, you typically need a good microphone, an audio interface, studio monitors or quality headphones, and a digital audio workstation (DAW) like Ableton or FL Studio.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">3. Can I rent instruments or sound equipment?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>Yes, we offer instrument and sound equipment rentals for short-term use. This includes guitars, keyboards, amplifiers, microphones, and sound systems for live performances or studio sessions.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">4. How do I book a recording session in your studio?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>To book a recording session, simply contact us through our website or call our studio. We offer hourly rates and package deals based on your recording needs.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">5. What genres of music do you teach?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>We teach a wide range of genres, including classical, jazz, rock, pop, blues, and more. Our instructors are versatile and can adapt to your preferred style of music.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">6. Do you provide live sound engineering services for events?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>Yes, we provide professional live sound engineering services for concerts, events, and performances. Our team can handle sound setup, mixing, and monitoring to ensure the best audio quality.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">7. Are there any discounts for long-term instrument rentals?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>We offer discounted rates for long-term instrument rentals. Please contact us for specific pricing based on the duration and type of equipment you need.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">8. What should I expect during my first music lesson?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>During your first lesson, our instructors will assess your skill level, understand your goals, and create a customized lesson plan. You'll also get hands-on experience with the instrument you're learning.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">9. Do you sell sheet music and music books?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>Yes, we sell a wide selection of sheet music, songbooks, and instructional books for various instruments and genres. Whether you're learning classical pieces or modern hits, we have the right materials for you.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">10. Can I record a demo in your studio?<span class="toggle-symbol">+</span></h3>
+      <div class="faq-answer">
+        <p>Absolutely! Our studio is equipped to handle demo recordings for solo artists, bands, and vocalists. We offer professional-quality recordings with experienced sound engineers.</p>
+      </div>
+    </div>
+  </div>
+        </div>
+
+
+        <div class="container mt-5" id="contact">
+            <h2 class="text-center text-primary" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 style=" color: #2C3E50;">We would Love to Help</h4>
+                    <p style="font-family: cursive;">We'd love to hear from you! Whether you have questions about our subscription plans, need assistance with your account, or want to share your feedback, our team is here to help. Please feel free to reach out to us through the contact form below, or you can email us directly at support@example.com. Your inquiries are important to us, and we strive to respond within 24 hours. Thank you for choosing us to support your music journey!</p>
+        
+                    <h4 style=" color: #2C3E50;"><i class="fa-solid fa-location-dot"></i> Location Address</h4>
+                    <p>Hyderabad,Telangana.</p>
+        
+                    <h4 style=" color: #2C3E50;"><i class="fa-solid fa-phone"></i>  For Further Inquiry</h4>
+                    <p>(+123) - 1234 - 234</p>
+        
+                    <h4 style=" color: #2C3E50;"><i class="fa-solid fa-envelope"></i> Email Address</h4>
+                    <p>support@example.com</p>
+                </div>
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label" style="font-weight: bold;">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="error" id="nameError"></div>
+                        </div>
+        
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="font-weight: bold;">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="error" id="emailError"></div>
+                        </div>
+        
+                        <!-- Subject -->
+                        <div class="mb-3">
+                            <label for="subject" class="form-label" style="font-weight: bold;">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
+                            <div class="error" id="subjectError"></div>
+                        </div>
+        
+                        <!-- Message -->
+                        <div class="mb-3">
+                            <label for="message" class="form-label" style="font-weight: bold;">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Write your message" required></textarea>
+                            <div class="error" id="messageError"></div>
+                        </div>
+        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                    <div class="success" id="successMessage"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JavaScript for form validation -->
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+        
+                document.querySelectorAll('.error').forEach(el => el.innerText = '');
+                document.getElementById('successMessage').innerText = '';
+        
+                // Get form values
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+        
+                let valid = true;
+        
+                // Name validation
+                if (name === '') {
+                    document.getElementById('nameError').innerText = 'Name is required';
+                    valid = false;
+                }
+        
+                // Email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email === '') {
+                    document.getElementById('emailError').innerText = 'Email is required';
+                    valid = false;
+                } else if (!emailPattern.test(email)) {
+                    document.getElementById('emailError').innerText = 'Enter a valid email address';
+                    valid = false;
+                }
+        
+                // Subject validation
+                if (subject === '') {
+                    document.getElementById('subjectError').innerText = 'Subject is required';
+                    valid = false;
+                }
+        
+                // Message validation
+                if (message === '') {
+                    document.getElementById('messageError').innerText = 'Message is required';
+                    valid = false;
+                }
+        
+                if (valid) {
+                    document.getElementById('successMessage').innerText = 'Your message has been sent successfully!';
+                }
+            });
+        </script>
+        
+
+      <footer>
+        <div class="foot">
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">SK Music Lesson</h1>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">At SK Music Lesson, we are dedicated to nurturing the musical talents of our students. Our platform offers a wide range of music lessons, courses, and resources tailored for every skill level, from beginners to advanced musicians. Veniam, harum?</p>
+            <div class="icons" style="font-size: 30px; display: flex; justify-content: space-evenly; align-items: center; gap: 50px; cursor: pointer;">
+                
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+
+        </div>
+        <p class="text-center text-light mt-5" style="background-color: rgb(187, 84, 32); font-size: 20px;">&copy; 2024 Music Lessons APK. All rights reserved.</p>
+
+      </footer>
+
+
+     
+      
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(dropdown => {
+                dropdown.addEventListener('click', function(event) {
+                    event.preventDefault();  
+                    const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                    openDropdowns.forEach(openDropdown => {
+                        if (openDropdown !== dropdown.nextElementSibling) {
+                            openDropdown.classList.remove('show');
+                        }
+                    });
+
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                });
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                    openDropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const contentDiv=document.getElementById('content');
+            
+            let content = '';
+
+            if (searchTerm === 'guitar') {
+                content=`<h2>Guitar</h2>
+        <p class='music1'>The guitar is one of the most popular musical instruments, with a rich history and versatility that spans many genres. Guitars are available in different types, each suited to different styles of music.</p>
+        
+        <h3>Types of Guitars:</h3>
+        <ul>
+            <li><strong>Acoustic Guitar:</strong> This type of guitar is often used for folk, country, and rock music. It has a hollow body that amplifies the sound acoustically without the need for electronic amplification.</li>
+            <li><strong>Electric Guitar:</strong> Commonly used in rock, metal, and blues, the electric guitar relies on pickups and amplifiers to produce sound. It offers a wide range of tones and is essential for modern bands.</li>
+            <li><strong>Classical Guitar:</strong> Featuring nylon strings, the classical guitar is commonly used in classical, flamenco, and traditional music. It produces a softer, more mellow sound.</li>
+        </ul>
+        
+        <h3>Interesting Facts about Guitars:</h3>
+        <ul>
+            <li>The guitar is over 4,000 years old, with origins tracing back to ancient Mesopotamia.</li>
+            <li>Some of the world's most famous musicians, like Jimi Hendrix and Eric Clapton, are renowned for their mastery of the guitar.</li>
+            <li>There are 20 million guitars made annually around the world.</li>
+            <li>Guitar solos have been a defining element in rock and metal music, with iconic solos featured in songs like "Stairway to Heaven" and "Comfortably Numb".</li>
+        </ul>`
+        } else if (searchTerm === 'piano') {
+
+            content=`<h2>Piano</h2>
+        <p>The piano is a classic and versatile musical instrument, widely used in classical, jazz, and popular music. It is known for its rich tonal range and dynamic expressiveness.</p>
+        
+        <h3>Types of Pianos:</h3>
+        <ul>
+            <li><strong>Grand Piano:</strong> The grand piano is known for its rich and full sound, used primarily in concert settings. It has horizontal strings and hammers, which provide better tonal quality.</li>
+            <li><strong>Upright Piano:</strong> The upright piano is more compact than a grand piano, with vertical strings. It’s ideal for home settings and schools due to its smaller size.</li>
+            <li><strong>Digital Piano:</strong> A modern variation, digital pianos replicate the sound and feel of acoustic pianos but offer additional features like different sound modes and portability.</li>
+        </ul>
+        
+        <h3>Interesting Facts about Pianos:</h3>
+        <ul>
+            <li>The piano was invented in 1700 by Bartolomeo Cristofori in Italy.</li>
+            <li>A standard piano has 88 keys: 52 white and 36 black, allowing for a wide range of musical notes.</li>
+            <li>Ludwig van Beethoven, one of the most famous composers, composed some of his greatest works on the piano, despite losing his hearing.</li>
+            <li>Concert grand pianos can have over 12,000 parts, making them one of the most complex instruments.</li>
+        </ul>`            
+
+            } 
+            else if (searchTerm === 'violin') {
+                content=`<h2>Violin</h2>
+        <p>The violin is a string instrument known for its expressive and emotional sound. It is widely used in classical, folk, and modern music. It has four strings and is played with a bow.</p>
+        
+        <h3>Types of Violins:</h3>
+        <ul>
+            <li><strong>Classical Violin:</strong> The most common type, used in classical music, orchestras, and solo performances. It is characterized by its rich and vibrant tone.</li>
+            <li><strong>Electric Violin:</strong> A modern version of the violin, often used in rock, jazz, and electronic music. It requires amplification and allows for various sound effects.</li>
+            <li><strong>Baroque Violin:</strong> A historical version of the violin, used during the Baroque period. It has a more mellow sound and is played with gut strings.</li>
+        </ul>
+        
+        <h3>Interesting Facts about Violins:</h3>
+        <ul>
+            <li>The violin originated in Italy in the 16th century and became a staple in classical music by the 18th century.</li>
+            <li>Antonio Stradivari, an Italian luthier, crafted some of the most valuable violins in the world. A Stradivarius violin can sell for millions of dollars today.</li>
+            <li>The violin is often referred to as the "queen of instruments" due to its leading role in orchestras and its wide emotional range.</li>
+            <li>Violins are built from over 70 different pieces of wood and require highly skilled craftsmanship to create.</li>
+        </ul>`
+            } else {
+                alert('No matching results. Try searching for "guitar", "piano", or "violin".');
+                contentDiv.style.display = 'none';
+                return;
+            }
+
+            contentDiv.innerHTML = content;  
+            contentDiv.style.display = 'block';         
+        });
+
+
+
+
+        const lessonForm = document.getElementById('lesson-form');
+        const lessonsDiv = document.getElementById('lessons');
+        let lessons = [];
+
+        lessonForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const instructor = document.getElementById('instructor').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const recurring = document.getElementById('recurring').value;
+
+            const lesson = { 
+                instructor, 
+                date, 
+                time, 
+                recurring 
+            };
+            lessons.push(lesson);
+            displayLessons();
+        });
+
+        function displayLessons() {
+            lessonsDiv.innerHTML = lessons.map((lesson, index) => `
+                <div class="lesson-item">
+                    <p><strong>Instructor:</strong> ${lesson.instructor}</p>
+                    <p><strong>Date:</strong> ${lesson.date}</p>
+                    <p><strong>Time:</strong> ${lesson.time}</p>
+                    <p><strong>Recurring:</strong> ${lesson.recurring}</p>
+                    <button onclick="rescheduleLesson(${index})">Reschedule</button>
+                </div>
+            `).join('');
+        }
+
+        function rescheduleLesson(index) {
+            const newDate = prompt('Enter a new date (YYYY-MM-DD):', lessons[index].date);
+            const newTime = prompt('Enter a new time (HH:MM):', lessons[index].time);
+
+            if (newDate && newTime) {
+                lessons[index].date = newDate;
+                lessons[index].time = newTime;
+                displayLessons();
+            }
+        }
+
+
+
+        document.querySelectorAll('.playbackRate').forEach((select, index) => {
+        select.addEventListener('change', function () {
+            const video = this.closest('.video-wrapper').querySelector('video');
+            video.playbackRate = parseFloat(this.value);
+        });
+    });
+
+    document.querySelectorAll('.videoQuality').forEach((select, index) => {
+        select.addEventListener('change', function () {
+            const video = this.closest('.video-wrapper').querySelector('video');
+            const quality = this.value;
+
+           
+            console.log(`Selected quality for video ${index + 1}: ${quality}`);
+           
+        });
+    });
+
+    document.querySelectorAll('.fullscreenBtn').forEach((button) => {
+        button.addEventListener('click', function () {
+            const video = this.closest('.video-wrapper').querySelector('video');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { 
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { 
+                video.msRequestFullscreen();
+            }
+        });
+    });
+
+
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const symbol = item.querySelector('.toggle-symbol');
+
+    question.addEventListener('click', () => {
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+
+      symbol.textContent = symbol.textContent === '+' ? '-' : '+';
+    });
+  });
+
+
+      
+    </script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
